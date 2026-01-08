@@ -3,9 +3,9 @@ Porto folio site :
 # Portfolio Website
 
 ## Overview
-This is a personal portfolio website designed to present professional information, services, and contact details in a clear and structured way. The site is suitable for developers, designers, or freelancers who want a simple and effective online presence.
+This is a personal portfolio website designed to present professional information, services, and contact details in a clear and structured way. The site is suitable for developers, designers, freelancers who want a simple and effective online presence and Vidéo maker Data analyst. 
 
-The project is built as a static website and can be easily customized or extended.
+   The project is built as a static website and can be easily customized or extended.
 
 ---
 
@@ -18,7 +18,7 @@ The landing section introduces the portfolio and provides a quick overview of wh
 It typically includes:
 - A short headline or tagline
 - A brief introduction
-- A call-to-action (e.g., View Services or Contact)
+- A call-to-action (e.g., Dowload CV).
 
 ---
 
