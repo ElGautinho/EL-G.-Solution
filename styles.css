@@ -20,6 +20,7 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 3rem;
 }
 
 /* Utility */
@@ -366,7 +367,7 @@ body {
 
 /* ===== Services ===== */
 .services {
-  padding: 60px 0;
+  padding: 30px 0;
   background: white; /* matches hero background on home */
 }
 
@@ -569,6 +570,7 @@ body {
 .contact {
   background: white;
   padding: 60px 0;
+  margin-bottom: -2rem;
 }
 
 .contact-wrapper {
@@ -584,6 +586,16 @@ body {
   max-width: 600px;
   animation: fadeInUp 0.8s ease forwards;
 }
+
+.contact-header {
+  font-size: 2.5rem;
+  color: rgb(3,22,3);
+  margin-bottom: 2rem;
+   margin-top: -2rem;
+  text-align: center;
+}
+
+
 .contact-info h1 {
   font-size: 2.5rem;
   color: rgb(3,22,3);
