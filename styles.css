@@ -304,7 +304,8 @@ body {
   
   /* Plans */
   .plans-header h1 { font-size: 2rem; }
-  .plan-card { padding: 1.5rem 1rem; }
+  .plan-card { padding: 1.5rem 1rem; align-items: center;
+   }
   
   /* Contact */
   .contact { padding: 40px 0; }
