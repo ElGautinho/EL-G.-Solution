@@ -25,7 +25,7 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 0 1rem;
 }
 
@@ -230,7 +230,8 @@ body {
 /* Tablets */
 @media (max-width: 1024px) {
   .hero-text h1 { font-size: 2.5rem; }
-  .container { width: 95%; }
+  .container { width: 95%; margin-top: 1rem;
+  }
   .logo img { max-width: 80px; }
 }
 
@@ -263,7 +264,7 @@ body {
   }
   .hero-text h1 { font-size: 2rem; }
   .hero-text p { font-size: 1rem; }
-  .hero-images { max-width: 320px; }
+  .hero-images { max-width: 320px; margin-top: 1rem; }
 
   /* Footer */
   .footer-row {
@@ -290,10 +291,11 @@ body {
   .nav-links { margin-top: 0.5rem; }
   
   /* Hero */
-  .hero { padding: 2rem 0; }
+  .hero { padding: 1rem 0; }
   .hero-text h1 { font-size: 1.8rem; }
-  .hero-text p { font-size: 0.95rem; margin: 1rem 0; }
-  
+  .hero-text p { font-size: 0.95rem; margin: 0.8rem 0; }
+  .hero-images{ margin-top: 0.5rem; }
+
   /* Services */
   .services-header h1 { font-size: 2rem; }
   .card { padding: 1.5rem 1rem; }
@@ -329,10 +331,11 @@ body {
   .nav-toggle { font-size: 1.5rem; }
   
   /* Hero */
-  .hero { padding: 1.5rem 0; }
+  .hero { padding: 1rem 0; }
   .hero-text h1 { font-size: 1.6rem; line-height: 1.1; }
-  .hero-text p { font-size: 0.9rem; margin: 0.8rem 0; }
+  .hero-text p { font-size: 0.9rem; margin: 0.6rem 0; }
   .btn { padding: 0.6rem 1rem; font-size: 0.9rem; }
+  .hero-images{ margin-top: 0.5rem; }
   
   /* Services */
   .services { padding: 20px 0; }
