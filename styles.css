@@ -243,9 +243,27 @@ body {
   /* Nav */
   .nav-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
-  .nav-toggle { display: block; }
+  .logo {
+    width: 100%;
+    text-align: center;
+    order: -1;
+  }
+  .nav-search {
+    width: 100%;
+    margin-top: 0.8rem;
+    order: 0;
+  }
+  .nav-toggle { 
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+  .nav-toggle.open {
+    display: none;
+  }
   .nav-links {
     display: none;
     flex-direction: column;
@@ -254,6 +272,7 @@ body {
     margin-top: 0.8rem;
     border-radius: 6px;
     padding: 1rem 0;
+    order: 2;
   }
   .nav-links.open { display: flex; }
   .nav-links li { text-align: center; padding: 0.5rem 0; }
