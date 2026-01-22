@@ -124,8 +124,11 @@
     <div class="container footer-row">
 
       <div class="footer-col">
-        <h4>Info</h4>
-        <ul class="links">
+        <div class="footer-header">
+          <h4>Info</h4>
+          <button class="footer-toggle" aria-label="Toggle footer section"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <ul class="links footer-content">
           <li><a href="#">About Us</a></li>
           <li><a href="#">Customers</a></li>
           <li><a href="#">Collection</a></li>
@@ -133,8 +136,11 @@
       </div>
 
       <div class="footer-col">
-        <h4>Explore</h4>
-        <ul class="links">
+        <div class="footer-header">
+          <h4>Explore</h4>
+          <button class="footer-toggle" aria-label="Toggle footer section"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <ul class="links footer-content">
           <li><a href="#">Latest Designs</a></li>
           <li><a href="#">Popular Designs</a></li>
           <li><a href="#">New Uploads</a></li>
@@ -142,8 +148,11 @@
       </div>
 
       <div class="footer-col">
-        <h4>Legal</h4>
-        <ul class="links">
+        <div class="footer-header">
+          <h4>Legal</h4>
+          <button class="footer-toggle" aria-label="Toggle footer section"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <ul class="links footer-content">
           <li><a href="#">Customer Agreement</a></li>
           <li><a href="#">Testimonials</a></li>
           <li><a href="#">Media Kit</a></li>
@@ -151,17 +160,22 @@
       </div>
 
       <div class="footer-col">
-        <h4>Newsletter</h4>
-        <p>Subscribe to our newsletter for weekly updates and design tips.</p>
-        <form action="#">
-          <input type="email" placeholder="Your email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-        <div class="icons">
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
+        <div class="footer-header">
+          <h4>Newsletter</h4>
+          <button class="footer-toggle" aria-label="Toggle footer section"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <div class="footer-content">
+          <p>Subscribe to our newsletter for weekly updates and design tips.</p>
+          <form action="#">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -171,6 +185,57 @@
     const toggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    
+    // Footer dropdown toggle
+    const footerToggles = document.querySelectorAll('.footer-toggle');
+    footerToggles.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const content = btn.closest('.footer-col').querySelector('.footer-content');
+        const isCollapsed = content.classList.contains('collapsed');
+        
+        // Close all other sections
+        document.querySelectorAll('.footer-content').forEach(el => {
+          if (el !== content) {
+            el.classList.add('collapsed');
+            el.closest('.footer-col').querySelector('.footer-toggle').classList.remove('rotated');
+          }
+        });
+        
+        // Toggle current section
+        content.classList.toggle('collapsed');
+        btn.classList.toggle('rotated');
+      });
+    });
+    
+    // On mobile, collapse all footer sections by default
+    if (window.innerWidth <= 768) {
+      document.querySelectorAll('.footer-content').forEach(content => {
+        content.classList.add('collapsed');
+      });
+      document.querySelectorAll('.footer-toggle').forEach(btn => {
+        btn.style.display = 'block';
+      });
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        document.querySelectorAll('.footer-content').forEach(content => {
+          content.classList.remove('collapsed');
+        });
+        document.querySelectorAll('.footer-toggle').forEach(btn => {
+          btn.style.display = 'none';
+        });
+      } else {
+        document.querySelectorAll('.footer-content').forEach(content => {
+          content.classList.add('collapsed');
+        });
+        document.querySelectorAll('.footer-toggle').forEach(btn => {
+          btn.style.display = 'block';
+        });
+      }
+    });
   </script>
 </body>
 </html>
