@@ -373,8 +373,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
-    row-gap: 0.2rem;
+    gap: 4rem;
+    row-gap: 2rem;
     flex-wrap: wrap;
   }
   .logo img { max-width: 60px; }
@@ -484,7 +484,7 @@ body {
 }
 
 /* Extra Small Phones */
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .container { padding: 0 0.5rem; }
   
   /* Nav */
