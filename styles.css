@@ -246,6 +246,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    row-gap: 0.2rem;
     flex-wrap: wrap;
   }
   .logo {
@@ -277,7 +278,7 @@ body {
     flex-direction: column;
     width: 100%;
     background: #031603;
-    margin-top: 0.8rem;
+    margin-top: 0.3rem;
     border-radius: 6px;
     padding: 1rem 0;
     flex-basis: 100%;
@@ -319,6 +320,14 @@ body {
   .container { width: 100%; padding: 0 1rem; }
   
   /* Nav */
+  .nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    row-gap: 0.2rem;
+    flex-wrap: wrap;
+  }
   .logo img { max-width: 70px; }
   .nav-links { margin-top: 0.5rem; }
   
@@ -365,6 +374,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 5rem;
+    row-gap: 0.2rem;
     flex-wrap: wrap;
   }
   .logo img { max-width: 60px; }
@@ -483,6 +493,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 4rem;
+    row-gap: 0.2rem;
     flex-wrap: wrap;
   }
   .logo img { max-width: 50px; }
