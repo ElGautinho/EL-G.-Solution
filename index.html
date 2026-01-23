@@ -94,7 +94,11 @@
 <section class="services"">
   <div class="container">
     <h2 class="services-header">What My Clients Say</h2>
-    <div class="testimonials-grid">
+    <div class="testimonials-carousel-container">
+      <button class="carousel-nav carousel-prev" aria-label="Previous testimonial">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="testimonials-grid carousel-items">
       <blockquote>
         <p>“Great design eye and smooth collaboration.”</p>
         <cite>— LePhare-Bukavu</cite>
@@ -137,6 +141,10 @@
           <img src="images/logo Arcade-es.png" alt="Newsletter" width="100px">
         </div>
       </blockquote>
+    </div>
+      <button class="carousel-nav carousel-next" aria-label="Next testimonial">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
   </div>
 </section>
@@ -246,6 +254,52 @@
     const toggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // ===== CAROUSEL FOR TESTIMONIALS (Mobile Only) =====
+    let currentSlide = 0;
+    const testimonials = document.querySelectorAll('.carousel-items blockquote');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const carouselContainer = document.querySelector('.testimonials-carousel-container');
+
+    function updateCarousel() {
+      // Only show current slide on mobile
+      testimonials.forEach((item, index) => {
+        item.classList.remove('active');
+        if (index === currentSlide) {
+          item.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % testimonials.length;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
+      updateCarousel();
+    }
+
+    // Event listeners for buttons
+    nextBtn?.addEventListener('click', nextSlide);
+    prevBtn?.addEventListener('click', prevSlide);
+
+    // Initialize carousel
+    updateCarousel();
+
+    // Handle window resize to show/hide carousel buttons
+    function handleResize() {
+      if (window.innerWidth <= 1024) {
+        carouselContainer?.classList.add('carousel-active');
+      } else {
+        carouselContainer?.classList.remove('carousel-active');
+      }
+    }
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
   </script>
 </body>
 </html>

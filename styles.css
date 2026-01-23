@@ -361,6 +361,8 @@ body {
   
   /* Testimonials */
   .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonials-carousel-container { display: flex; margin-top: 2rem; }
+  .carousel-nav { display: flex !important; }
   
   /* Newsletter */
   .newsletter-grid { gap: 1rem; }
@@ -491,6 +493,8 @@ body {
   .blog-grid article { padding: 1.2rem; }
   .testimonials-grid { grid-template-columns: 1fr; gap: 1rem; }
   .testimonials-grid blockquote { padding: 1.2rem; }
+  .testimonials-carousel-container { display: flex; }
+  .carousel-nav { display: flex !important; }
   
   /* Newsletter */
   .newsletter-grid { flex-direction: column; margin-bottom: 0; margin-top: 15px; }
@@ -1025,6 +1029,104 @@ body {
   margin-top: .5rem;
   color: #555;
   font-style: normal;
+}
+
+/* Carousel for testimonials (Mobile only) */
+.testimonials-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.carousel-nav {
+  display: none;
+  background: #566956;
+  color: #bfbfbf;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.carousel-nav:hover {
+  background: #3d5940;
+  transform: scale(1.1);
+}
+
+.carousel-items {
+  width: 100%;
+  position: relative;
+}
+
+.testimonials-grid.carousel-items blockquote {
+  display: none;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.testimonials-grid.carousel-items blockquote.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Show carousel buttons on mobile */
+.testimonials-carousel-container.carousel-active .carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide grid on mobile, show single item */
+.testimonials-carousel-container.carousel-active .carousel-items {
+  display: block;
+}
+
+/* Social Media Carousel */
+.social-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-carousel-container .carousel-items {
+  width: 100%;
+  position: relative;
+}
+
+.social-carousel-container.carousel-active .carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-carousel-container.carousel-active .carousel-items {
+  display: block;
+}
+
+.social-carousel-container .carousel-items blockquote {
+  display: none;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.social-carousel-container .carousel-items blockquote.active {
+  display: block;
 }
 
 /* Newsletter */
