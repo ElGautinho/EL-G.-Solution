@@ -1287,6 +1287,17 @@ body {
     min-width: auto;
   }
 }
+
+/* further adjustments for extremely small screens */
+@media (max-width: 350px) {
+  #carousel2 {
+    margin: 0 0.5rem;
+  }
+  #carousel2 .services-grid .service-card {
+    padding: 1rem;        /* reduce padding to fit content better */
+    font-size: 0.9rem;
+  }
+}
 .service-card {
   background: #fff;
   padding: 1.5rem;
