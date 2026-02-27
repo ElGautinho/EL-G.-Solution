@@ -1054,6 +1054,30 @@ body {
   flex-shrink: 0;
 }
 
+/* show arrows when any auto-carousel is active (mobile) */
+.auto-carousel-container.carousel-active .carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* overlay positioning for all carousel navs */
+.auto-carousel-container {
+  position: relative;
+}
+.auto-carousel-container .carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.auto-carousel-container .carousel-prev {
+  left: -25px;
+}
+.auto-carousel-container .carousel-next {
+  right: -25px;
+}
+
+
 .carousel-nav:hover {
   background: #3d5940;
   transform: scale(1.1);
@@ -1140,12 +1164,13 @@ body {
   width: 100%;
 }
 
-.auto-carousel-container .carousel-items > * {
+/* only hide non-active slides when the carousel is active (i.e. on mobile) */
+.auto-carousel-container.carousel-active .carousel-items > * {
   display: none;
   animation: fadeIn 0.5s ease-in;
 }
 
-.auto-carousel-container .carousel-items > *.active {
+.auto-carousel-container.carousel-active .carousel-items > *.active {
   display: block;
 }
 
@@ -1223,6 +1248,23 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
   gap: 1.5rem;
+}
+
+/* For the Digital & Social Marketing section (carousel2) use a simple flex row layout and keep all cards inline */
+#carousel2 {
+  margin: 0 1rem;              /* overall horizontal margin on the container */
+}
+#carousel2 .services-grid {
+  display: flex;
+  flex-wrap: nowrap;            /* do not wrap to next line */
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* ensure each card shrinks to fit three across but doesn't become too small */
+#carousel2 .services-grid .service-card {
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 200px;            /* fallback to keep content legible */
 }
 .service-card {
   background: #fff;

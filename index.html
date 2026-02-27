@@ -289,15 +289,12 @@
     // Initialize carousel
     updateCarousel();
 
-    // Handle window resize to show/hide carousel buttons
+    // Handle window resize – keep carousel mode active so arrows appear on all sizes
     function handleResize() {
-      if (window.innerWidth <= 1024) {
-        carouselContainer?.classList.add('carousel-active');
-      } else {
-        carouselContainer?.classList.remove('carousel-active');
-      }
+      carouselContainer?.classList.add('carousel-active');
     }
 
+    // apply on startup and on resize (ensures presence even if container is added later)
     handleResize();
     window.addEventListener('resize', handleResize);
   </script>

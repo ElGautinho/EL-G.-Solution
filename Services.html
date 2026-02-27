@@ -40,6 +40,9 @@
       </header>
 
       <div class="auto-carousel-container" id="carousel1">
+        <button class="carousel-nav carousel-prev" aria-label="Previous slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
         <div class="service-cards carousel-items">
         <article class="card">
           <img src="images/graphicdesignservice.jpeg" alt="" width="180px" height="150px">
@@ -61,6 +64,9 @@
           <p>Contact me for more details.</p>
         </article>
       </div>
+        <button class="carousel-nav carousel-next" aria-label="Next slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
     </div>
   </main>
 <!-- ===== SERVICES SECTION ===== -->
@@ -95,6 +101,9 @@
       </header>
 
       <div class="auto-carousel-container" id="carousel3">
+        <button class="carousel-nav carousel-prev" aria-label="Previous slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
         <div class="service-cards carousel-items">
         <article class="card">
           <h3>Data collection</h3>
@@ -119,6 +128,9 @@
           <img src="images/BI-Large-Card-3.jpg" alt="" width="230px" height="150px">
         </article>
       </div>
+        <button class="carousel-nav carousel-next" aria-label="Next slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
     </div>
   </main>
   
@@ -235,6 +247,8 @@
     ];
 
     carousels.forEach((carousel) => {
+      // disable automatic carousel for digital/social marketing section entirely
+      if (carousel.id === 'carousel2') return;
       let currentSlide = 0;
       const container = document.querySelector(`#${carousel.id}`);
       const items = container ? container.querySelectorAll('.carousel-items > *') : [];
@@ -257,6 +271,19 @@
           updateCarousel();
         }
       }
+
+      function prevSlide() {
+        if (items.length > 0) {
+          currentSlide = (currentSlide - 1 + items.length) % items.length;
+          updateCarousel();
+        }
+      }
+
+      // attach manual navigation buttons if present
+      const prevBtn = container?.querySelector('.carousel-prev');
+      const nextBtn = container?.querySelector('.carousel-next');
+      prevBtn?.addEventListener('click', prevSlide);
+      nextBtn?.addEventListener('click', nextSlide);
 
       function startAutoplay() {
         if (window.innerWidth < 1440 && items.length > 1) {
