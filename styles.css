@@ -1129,6 +1129,32 @@ body {
   display: block;
 }
 
+/* Auto-Carousel for Services Sections */
+.auto-carousel-container {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.auto-carousel-container.carousel-active .carousel-items {
+  display: block;
+  width: 100%;
+}
+
+.auto-carousel-container .carousel-items > * {
+  display: none;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.auto-carousel-container .carousel-items > *.active {
+  display: block;
+}
+
+.auto-carousel-container.carousel-active .service-cards,
+.auto-carousel-container.carousel-active .services-grid {
+  display: flex;
+  justify-content: center;
+}
+
 /* Newsletter */
 .newsletter-grid {
   display: flex;

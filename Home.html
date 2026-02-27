@@ -288,15 +288,13 @@
     // Initialize carousel
     updateCarousel();
 
-    // Handle window resize to show/hide carousel buttons
+    // Handle window resize to show carousel buttons on all screen sizes
     function handleResize() {
-      if (window.innerWidth <= 1024) {
-        carouselContainer?.classList.add('carousel-active');
-      } else {
-        carouselContainer?.classList.remove('carousel-active');
-      }
+      // keep carousel mode enabled so arrows show and only one testimonial is visible at a time
+      carouselContainer?.classList.add('carousel-active');
     }
 
+    // initialize and ensure carousel is always active
     handleResize();
     window.addEventListener('resize', handleResize);
   </script>

@@ -186,17 +186,13 @@
     </div>
   </footer>
 
+  <!-- Combined script block: nav toggle and footer logic -->
   <script>
-    const toggle = document.querySelector('.nav-toggle');
+    // Navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  </footer>
-  
-  <script>
-    const toggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
     // Footer dropdown toggle
     const footerToggles = document.querySelectorAll('.footer-toggle');
     footerToggles.forEach(btn => {
@@ -204,7 +200,7 @@
         e.preventDefault();
         const content = btn.closest('.footer-col').querySelector('.footer-content');
         const isCollapsed = content.classList.contains('collapsed');
-        
+
         // Close all other sections
         document.querySelectorAll('.footer-content').forEach(el => {
           if (el !== content) {
@@ -212,13 +208,13 @@
             el.closest('.footer-col').querySelector('.footer-toggle').classList.remove('rotated');
           }
         });
-        
+
         // Toggle current section
         content.classList.toggle('collapsed');
         btn.classList.toggle('rotated');
       });
     });
-    
+
     // On mobile, collapse all footer sections by default
     if (window.innerWidth <= 768) {
       document.querySelectorAll('.footer-content').forEach(content => {
@@ -228,7 +224,7 @@
         btn.style.display = 'block';
       });
     }
-    
+
     // Handle window resize
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {

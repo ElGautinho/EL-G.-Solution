@@ -39,7 +39,8 @@
         <h2>Graphic and vidéo editing service</h2>
       </header>
 
-      <div class="service-cards">
+      <div class="auto-carousel-container" id="carousel1">
+        <div class="service-cards carousel-items">
         <article class="card">
           <img src="images/graphicdesignservice.jpeg" alt="" width="180px" height="150px">
           <p>Contact me for more details.</p>
@@ -69,7 +70,8 @@
       <h2>Digital and Social Marketing </h2>
       <p>Find here more details about some of my extra key capabilities for your entreprise solutions.</p>
     </header>
-    <div class="services-grid">
+    <div class="auto-carousel-container" id="carousel2">
+      <div class="services-grid carousel-items">
       <article class="service-card">
         <img src="images/images (3).jpeg" alt="" width="230px" height="150px">
         <h3>Modern and human-centered interfaces for Social Marketing.</h3>
@@ -92,7 +94,8 @@
         <p>From collection to final report,<br>here are the services I can deliver successfully.</p>
       </header>
 
-      <div class="service-cards">
+      <div class="auto-carousel-container" id="carousel3">
+        <div class="service-cards carousel-items">
         <article class="card">
           <h3>Data collection</h3>
           <p>***********************</p>
@@ -221,6 +224,68 @@
           btn.style.display = 'block';
         });
       }
+    });
+
+    // ===== AUTO-CAROUSEL FOR SERVICES SECTIONS (Non-Desktop) =====
+    // Initialize carousels for all 3 sections
+    const carousels = [
+      { id: 'carousel1', selector: '#carousel1 .carousel-items .service-cards, #carousel1 .carousel-items .card' },
+      { id: 'carousel2', selector: '#carousel2 .carousel-items .service-card' },
+      { id: 'carousel3', selector: '#carousel3 .carousel-items .card' }
+    ];
+
+    carousels.forEach((carousel) => {
+      let currentSlide = 0;
+      const container = document.querySelector(`#${carousel.id}`);
+      const items = container ? container.querySelectorAll('.carousel-items > *') : [];
+      let autoplayInterval;
+
+      function updateCarousel() {
+        if (items.length > 0) {
+          items.forEach((item, index) => {
+            item.classList.remove('active');
+            if (index === currentSlide) {
+              item.classList.add('active');
+            }
+          });
+        }
+      }
+
+      function nextSlide() {
+        if (items.length > 0) {
+          currentSlide = (currentSlide + 1) % items.length;
+          updateCarousel();
+        }
+      }
+
+      function startAutoplay() {
+        if (window.innerWidth < 1440 && items.length > 1) {
+          autoplayInterval = setInterval(nextSlide, 4000);
+        }
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayInterval);
+      }
+
+      function handleResize() {
+        stopAutoplay();
+        if (window.innerWidth < 1440) {
+          container?.classList.add('carousel-active');
+          startAutoplay();
+        } else {
+          container?.classList.remove('carousel-active');
+        }
+      }
+
+      // Initialize
+      updateCarousel();
+      handleResize();
+
+      // Event listeners
+      window.addEventListener('resize', handleResize);
+      container?.addEventListener('mouseenter', stopAutoplay);
+      container?.addEventListener('mouseleave', startAutoplay);
     });
   </script>
 </body>
