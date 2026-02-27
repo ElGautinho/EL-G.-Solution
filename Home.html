@@ -288,9 +288,26 @@
     // Initialize carousel
     updateCarousel();
 
+    // autoplay support
+    let autoplayInterval;
+    function startAutoplay() {
+      if (testimonials.length > 1) {
+        autoplayInterval = setInterval(nextSlide, 4000);
+      }
+    }
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+    }
+
+    // pause when hovering over carousel
+    carouselContainer?.addEventListener('mouseenter', stopAutoplay);
+    carouselContainer?.addEventListener('mouseleave', startAutoplay);
+
     // Handle window resize – keep carousel mode active so arrows appear on all sizes
     function handleResize() {
       carouselContainer?.classList.add('carousel-active');
+      // always ensure autoplay runs (resize doesn't disable it)
+      startAutoplay();
     }
 
     // apply on startup and on resize (ensures presence even if container is added later)

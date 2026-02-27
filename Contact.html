@@ -263,10 +263,25 @@
     // Initialize carousel
     updateSocialCarousel();
 
-    // Handle window resize to show/hide carousel buttons
+    // autoplay support
+    let socialAutoplayInterval;
+    function startSocialAutoplay() {
+      if (socialItems.length > 1) {
+        socialAutoplayInterval = setInterval(nextSocialSlide, 4000);
+      }
+    }
+    function stopSocialAutoplay() {
+      clearInterval(socialAutoplayInterval);
+    }
+    socialCarouselContainer?.addEventListener('mouseenter', stopSocialAutoplay);
+    socialCarouselContainer?.addEventListener('mouseleave', startSocialAutoplay);
+
+    // Handle window resize to show/hide carousel buttons and control autoplay
     function handleSocialResize() {
+      stopSocialAutoplay();
       if (window.innerWidth < 1440) {
         socialCarouselContainer?.classList.add('carousel-active');
+        startSocialAutoplay();
       } else {
         socialCarouselContainer?.classList.remove('carousel-active');
       }

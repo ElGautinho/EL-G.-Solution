@@ -1256,15 +1256,36 @@ body {
 }
 #carousel2 .services-grid {
   display: flex;
-  flex-wrap: nowrap;            /* do not wrap to next line */
+  flex-wrap: nowrap;            /* do not wrap to next line by default */
   justify-content: center;
   gap: 1.5rem;
+  overflow-x: auto;            /* allow horizontal scrolling if needed */
 }
 
 /* ensure each card shrinks to fit three across but doesn't become too small */
 #carousel2 .services-grid .service-card {
   flex: 1 1 calc(33.333% - 1rem);
-  min-width: 200px;            /* fallback to keep content legible */
+  min-width: 160px;            /* slightly smaller to help on narrow phones */
+}
+
+/* gradually wrap on narrower screens and make cards full-width on very small devices */
+@media (max-width: 1024px) {
+  #carousel2 .services-grid {
+    flex-wrap: wrap;
+  }
+  #carousel2 .services-grid .service-card {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 120px;
+  }
+}
+@media (max-width: 640px) {
+  #carousel2 .services-grid {
+    flex-wrap: wrap;
+  }
+  #carousel2 .services-grid .service-card {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
 }
 .service-card {
   background: #fff;
